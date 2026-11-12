@@ -21,8 +21,8 @@
   --border: #E3E8EE;
 
   /* Typography */
-  --font-heading: "Manrope", "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: "Lora", Georgia, "Times New Roman", serif;
+  --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Layout */
   --container: 1200px;
@@ -70,6 +70,7 @@ body.nav-open { overflow: hidden; }
 
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
+  font-weight: 700;
   color: var(--navy);
   line-height: 1.2;
   margin: 0 0 0.75rem;
