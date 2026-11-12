@@ -114,7 +114,29 @@
   }
 
   /* -----------------------------------------------------------------------
-     5. Placeholder links (details still to be confirmed)
+     5. Opening logo intro: remove the overlay once it has lifted away,
+     or immediately if the visitor clicks / presses a key to skip it.
+     ----------------------------------------------------------------------- */
+  var intro = document.getElementById("introScreen");
+  if (intro) {
+    if (!document.documentElement.classList.contains("intro")) {
+      intro.remove();
+    } else {
+      var removeIntro = function () {
+        if (!intro.parentNode) return;
+        intro.remove();
+        document.querySelectorAll(".animate-in").forEach(function (el) { el.style.animationDelay = "0s"; });
+      };
+      intro.addEventListener("animationend", function (e) {
+        if (e.target === intro) removeIntro();
+      });
+      intro.addEventListener("click", removeIntro);
+      document.addEventListener("keydown", removeIntro, { once: true });
+    }
+  }
+
+  /* -----------------------------------------------------------------------
+     6. Placeholder links (details still to be confirmed)
      Prevents "#" links from jumping to the top of the page.
      ----------------------------------------------------------------------- */
   document.querySelectorAll("[data-placeholder-link]").forEach(function (link) {

@@ -8,7 +8,15 @@
   <meta name="theme-color" content="#14263D">
 
   <!-- Flag JS support early so scroll-reveal styles apply without a flash -->
-  <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      if (!sessionStorage.getItem("wotd-intro") && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("intro");
+        sessionStorage.setItem("wotd-intro", "1");
+      }
+    } catch (e) {}
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +31,16 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Opening logo animation (shown once per session) -->
+  <div class="intro-screen" id="introScreen" aria-hidden="true">
+    <div class="intro-logo">
+      <span class="intro-mark">W<span class="intro-mark-dot"></span></span>
+      <span class="intro-name">Write on the Dot<span class="brand-dot">.</span></span>
+    </div>
+    <span class="intro-line"></span>
+    <p class="intro-slogan">&ldquo;We'll dot the I's and cross the T's.&rdquo;</p>
+  </div>
 
   <!-- ================= HEADER / NAVIGATION ================= -->
   <header class="site-header" id="siteHeader">
@@ -54,6 +72,7 @@
 
     <!-- ================= SECTION 1: HERO ================= -->
     <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-photo" aria-hidden="true"></div>
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-content">
