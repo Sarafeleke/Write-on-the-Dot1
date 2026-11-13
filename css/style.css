@@ -1115,6 +1115,20 @@ ul { margin: 0; padding: 0; list-style: none; }
   .hero { padding: 2.5rem 0 4rem; }
   .slogan { font-size: 1rem; }
   .hero-subtitle { font-size: 1.08rem; }
+  .hero-statement { flex-direction: column; gap: 0.55rem; }
+  .hero-statement span { padding-left: 1.1rem; }
+  .hero-statement span::before,
+  .hero-statement span + span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
   .hero-actions .btn { width: 100%; }
 
   .hero-visual { padding: 2rem 0.25rem; }
@@ -1150,7 +1164,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* -------------------------------------------------------------------------
-   16. Opening logo intro (homepage, once per session)
+   16. Opening logo intro (homepage, every page load)
    ------------------------------------------------------------------------- */
 .intro-screen { display: none; }
 

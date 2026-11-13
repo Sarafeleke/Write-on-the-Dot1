@@ -4,18 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Write on the Dot | Professional Virtual Assistance &amp; Business Support</title>
-  <meta name="description" content="Write on the Dot provides flexible, managed virtual assistance and business support for UK businesses. We'll dot the I's and cross the T's, so you can focus on growing your business.">
+  <meta name="description" content="Write on the Dot provides flexible, managed virtual assistance and business support for UK businesses. We'll dot the i's and cross the t's, so you can focus on growing your business.">
   <meta name="theme-color" content="#14263D">
 
   <!-- Flag JS support early so scroll-reveal styles apply without a flash -->
   <script>
     document.documentElement.classList.add("js");
-    try {
-      if (!sessionStorage.getItem("wotd-intro") && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        document.documentElement.classList.add("intro");
-        sessionStorage.setItem("wotd-intro", "1");
-      }
-    } catch (e) {}
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("intro");
+    }
   </script>
 
   <!-- Fonts -->
@@ -32,14 +29,14 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Opening logo animation (shown once per session) -->
+  <!-- Opening logo animation (shown on every page load) -->
   <div class="intro-screen" id="introScreen" aria-hidden="true">
     <div class="intro-logo">
       <span class="intro-mark">W<span class="intro-mark-dot"></span></span>
       <span class="intro-name">Write on the Dot<span class="brand-dot">.</span></span>
     </div>
     <span class="intro-line"></span>
-    <p class="intro-slogan">&ldquo;We'll dot the I's and cross the T's.&rdquo;</p>
+    <p class="intro-slogan">&ldquo;We'll dot the i's and cross the t's.&rdquo;</p>
   </div>
 
   <!-- ================= HEADER / NAVIGATION ================= -->
@@ -81,7 +78,7 @@
           </p>
           <p class="slogan animate-in" style="--delay: 0.15s">
             <span class="slogan-line" aria-hidden="true"></span>
-            &ldquo;We'll dot the I's and cross the T's.&rdquo;
+            &ldquo;We'll dot the i's and cross the t's.&rdquo;
           </p>
 
           <h1 id="hero-heading" class="hero-title animate-in" style="--delay: 0.25s">
@@ -352,7 +349,7 @@
           </a>
           <p class="footer-tagline">Professional Virtual Assistance &amp; Business Support.</p>
           <p>Helping UK businesses save time and stay organised.</p>
-          <p class="footer-slogan">&ldquo;We'll dot the I's and cross the T's.&rdquo;</p>
+          <p class="footer-slogan">&ldquo;We'll dot the i's and cross the t's.&rdquo;</p>
         </div>
 
         <div class="footer-col">
@@ -387,7 +384,7 @@
 
       <div class="footer-bottom">
         <p>&copy; 2026 Write on the Dot. All rights reserved.</p>
-        <p class="footer-bottom-slogan">&ldquo;We'll dot the I's and cross the T's.&rdquo;</p>
+        <p class="footer-bottom-slogan">&ldquo;We'll dot the i's and cross the t's.&rdquo;</p>
       </div>
     </div>
   </footer>
