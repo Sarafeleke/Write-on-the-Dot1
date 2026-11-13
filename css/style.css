@@ -978,6 +978,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-contact li + li { margin-top: 0.85rem; }
 .footer-contact i { color: var(--teal); margin-top: 0.3rem; width: 16px; text-align: center; }
 .footer-contact .label { color: var(--white); font-weight: 600; }
+.footer-contact a { color: rgba(255, 255, 255, 0.72); word-break: break-word; }
+.footer-contact a:hover { color: var(--white); }
 
 .social-links { display: flex; gap: 0.6rem; margin-top: 1.5rem; }
 .social-link {
