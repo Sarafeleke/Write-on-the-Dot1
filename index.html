@@ -6,6 +6,7 @@
   <title>Write on the Dot | Professional Virtual Assistance &amp; Business Support</title>
   <meta name="description" content="Write on the Dot provides flexible, managed virtual assistance and business support for UK businesses. We'll dot the i's and cross the t's, so you can focus on growing your business.">
   <meta name="theme-color" content="#14263D">
+  <link rel="icon" type="image/svg+xml" href="images/logo-mark.svg">
 
   <!-- Flag JS support early so scroll-reveal styles apply without a flash -->
   <script>
@@ -32,7 +33,9 @@
   <!-- Opening logo animation (shown on every page load) -->
   <div class="intro-screen" id="introScreen" aria-hidden="true">
     <div class="intro-logo">
-      <span class="intro-mark">W<span class="intro-mark-dot"></span></span>
+      <span class="intro-mark">
+        <svg class="logo-svg" viewBox="0 0 48 48" focusable="false"><path class="logo-stem" d="M9.5 22 17.5 20V38h-7V23.8z"/><path class="logo-stem" d="M25 9.5h7v21q0 2.5 2.5 2.5H40v5.5h-7.5Q25 38.5 25 31z"/><circle class="logo-dot" cx="13.8" cy="12.4" r="4.3"/><rect class="logo-bar" x="22.5" y="16.6" width="19.5" height="4.6" rx="2.3"/></svg>
+      </span>
       <span class="intro-name">Write on the Dot<span class="brand-dot">.</span></span>
     </div>
     <span class="intro-line"></span>
@@ -43,7 +46,7 @@
   <header class="site-header" id="siteHeader">
     <div class="container nav-container">
       <a href="index.html" class="brand" aria-label="Write on the Dot - Home">
-        <span class="brand-mark" aria-hidden="true">W<span class="brand-mark-dot"></span></span>
+        <span class="brand-mark" aria-hidden="true"><svg class="logo-svg" viewBox="0 0 48 48" focusable="false"><path class="logo-stem" d="M9.5 22 17.5 20V38h-7V23.8z"/><path class="logo-stem" d="M25 9.5h7v21q0 2.5 2.5 2.5H40v5.5h-7.5Q25 38.5 25 31z"/><circle class="logo-dot" cx="13.8" cy="12.4" r="4.3"/><rect class="logo-bar" x="22.5" y="16.6" width="19.5" height="4.6" rx="2.3"/></svg></span>
         <span class="brand-name">Write on the Dot<span class="brand-dot">.</span></span>
       </a>
 
@@ -164,6 +167,21 @@
       </div>
     </section>
 
+    <!-- ================= LAUNCH OFFER BANNER ================= -->
+    <section class="launch-banner" aria-labelledby="launch-heading">
+      <div class="container launch-inner reveal">
+        <div class="launch-price">
+          <span class="launch-tag"><i class="fa-solid fa-star" aria-hidden="true"></i> Special Launch Offer</span>
+          <h2 id="launch-heading" class="launch-rate"><span class="launch-amount">&pound;8</span><span class="launch-unit">per hour</span></h2>
+        </div>
+        <div class="launch-details">
+          <p class="launch-founding">Become a founding client of Write on the Dot.</p>
+          <p class="launch-trial"><i class="fa-solid fa-gift" aria-hidden="true"></i> Plus, enjoy a two-week free introductory trial!</p>
+        </div>
+        <a href="services.html#founding-offer" class="btn btn-gold btn-lg launch-cta">Find Out More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </section>
+
     <!-- ================= SECTION 2: SERVICES OVERVIEW ================= -->
     <section class="section services" id="services" aria-labelledby="services-heading">
       <div class="container">
@@ -220,6 +238,12 @@
             <span class="card-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></span>
             <h3 class="card-title">Marketing &amp; General Business Support</h3>
             <p>Everyday marketing administration and operational support.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="card-icon"><i class="fa-solid fa-user-clock" aria-hidden="true"></i></span>
+            <h3 class="card-title">Temporary &amp; Staff Absence Cover</h3>
+            <p>Flexible administrative support to help businesses maintain continuity during maternity, paternity, sickness and other staff absences.</p>
           </article>
         </div>
 
@@ -286,6 +310,11 @@
           </article>
         </div>
 
+        <div class="delivery-model reveal">
+          <span class="delivery-icon" aria-hidden="true"><i class="fa-solid fa-earth-europe"></i></span>
+          <p>By combining a global delivery team with UK-based management and oversight, we provide dedicated, flexible and cost-effective administrative support tailored to your business.</p>
+        </div>
+
         <p class="benefits-closing reveal">
           <span class="closing-rule" aria-hidden="true"></span>
           Your Business, Better Supported<span class="brand-dot">.</span>
@@ -302,7 +331,7 @@
           <span class="eyebrow eyebrow-light">Introductory Offer</span>
           <h2 id="trial-heading" class="section-title light">Try Our Service for Two Weeks &ndash; On Us!</h2>
           <p class="trial-lead">Choosing the right business support shouldn't be a leap of faith.</p>
-          <p>Try our virtual assistance free for two weeks, with no obligation. If you continue, you'll get 20% off your first purchase.</p>
+          <p>Try our virtual assistance free for two weeks, with no obligation.</p>
 
           <div class="trial-cta">
             <p class="trial-cta-text"><strong>Ready for a little extra support?</strong> Get in touch to arrange your free consultation.</p>
@@ -319,7 +348,6 @@
           <ul class="offer-list">
             <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Two-week free introductory trial</li>
             <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> No obligation to continue</li>
-            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> <span><strong class="text-gold">20% OFF</strong> your first purchase after the trial</span></li>
           </ul>
         </div>
       </div>
@@ -344,7 +372,7 @@
       <div class="footer-grid">
         <div class="footer-col footer-about">
           <a href="index.html" class="brand brand-light" aria-label="Write on the Dot - Home">
-            <span class="brand-mark" aria-hidden="true">W<span class="brand-mark-dot"></span></span>
+            <span class="brand-mark" aria-hidden="true"><svg class="logo-svg" viewBox="0 0 48 48" focusable="false"><path class="logo-stem" d="M9.5 22 17.5 20V38h-7V23.8z"/><path class="logo-stem" d="M25 9.5h7v21q0 2.5 2.5 2.5H40v5.5h-7.5Q25 38.5 25 31z"/><circle class="logo-dot" cx="13.8" cy="12.4" r="4.3"/><rect class="logo-bar" x="22.5" y="16.6" width="19.5" height="4.6" rx="2.3"/></svg></span>
             <span class="brand-name">Write on the Dot<span class="brand-dot">.</span></span>
           </a>
           <p class="footer-tagline">Professional Virtual Assistance &amp; Business Support.</p>

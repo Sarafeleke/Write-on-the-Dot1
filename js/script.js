@@ -92,7 +92,7 @@
   // Stagger items that share a grid for a refined cascading effect
   document.querySelectorAll(".services-grid, .benefits-grid").forEach(function (grid) {
     Array.prototype.forEach.call(grid.children, function (child, i) {
-      child.style.setProperty("--reveal-delay", (i % 4) * 0.08 + "s");
+      child.style.setProperty("--reveal-delay", (i % 3) * 0.08 + "s");
     });
   });
 
