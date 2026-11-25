@@ -6,7 +6,7 @@
   <title>Website Design &amp; Development | Write on the Dot</title>
   <meta name="description" content="Professional website design and development for small businesses, start-ups, sole traders and individuals. Standard pages from £100 per page, with advanced features quoted separately.">
   <meta name="theme-color" content="#14263D">
-  <link rel="icon" type="image/svg+xml" href="images/logo-mark.svg">
+  <link rel="icon" type="image/png" href="images/logo-it-icon.png">
 
   <!-- Flag JS support early so scroll-reveal styles apply without a flash -->
   <script>document.documentElement.classList.add("js");</script>
@@ -29,8 +29,11 @@
   <header class="site-header" id="siteHeader">
     <div class="container nav-container">
       <a href="index.html" class="brand" aria-label="Write on the Dot - Home">
-        <span class="brand-mark" aria-hidden="true"><svg class="logo-svg" viewBox="0 0 48 48" focusable="false"><path class="logo-stem" d="M9.5 22 17.5 20V38h-7V23.8z"/><path class="logo-stem" d="M25 9.5h7v21q0 2.5 2.5 2.5H40v5.5h-7.5Q25 38.5 25 31z"/><circle class="logo-dot" cx="13.8" cy="12.4" r="4.3"/><rect class="logo-bar" x="22.5" y="16.6" width="19.5" height="4.6" rx="2.3"/></svg></span>
-        <span class="brand-name">Write on the Dot<span class="brand-dot">.</span></span>
+        <span class="brand-text">
+          <span class="brand-name">Write on the Dot<span class="brand-dot">.</span></span>
+          <span class="brand-tagline">We&rsquo;ll dot the i&rsquo;s and cross your t&rsquo;s.</span>
+        </span>
+        <img class="brand-logo" src="images/logo-it-icon.png" alt="" width="46" height="46">
       </a>
 
       <button class="nav-toggle" id="navToggle" aria-controls="primaryNav" aria-expanded="false" aria-label="Open menu">
@@ -56,10 +59,15 @@
 
     <!-- ================= PAGE HERO ================= -->
     <section class="page-hero wd-hero" aria-labelledby="wd-heading">
+      <div class="page-hero-photo" style="background-image: url('images/banner-illustration-slim.jpg'); --photo-pos: 60% center;" aria-hidden="true"></div>
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="container wd-hero-grid">
         <div class="wd-hero-content">
           <span class="eyebrow animate-in" style="--delay: 0.05s">Website Design &amp; Development</span>
+          <p class="wd-hero-price animate-in" style="--delay: 0.1s">
+            <span class="wd-price-amount">&pound;100</span>
+            <span class="wd-price-unit">per page</span>
+          </p>
           <h1 id="wd-heading" class="page-hero-title animate-in" style="--delay: 0.15s">Professional Websites at an <span class="text-accent">Accessible Price</span><span class="brand-dot">.</span></h1>
           <p class="page-hero-lead animate-in" style="--delay: 0.25s">A professional online presence for small businesses, start-ups, sole traders and individuals, with clear and straightforward pricing.</p>
           <div class="page-hero-actions animate-in" style="--delay: 0.35s">
@@ -188,6 +196,7 @@
 
         <div class="web-price-grid">
           <article class="web-price-card reveal">
+            <span class="panel-photo" style="background-image: url('images/logo-it.jpg'); --photo-opacity: 0.1;" aria-hidden="true"></span>
             <span class="launch-tag"><i class="fa-solid fa-tag" aria-hidden="true"></i> Standard Website Pages</span>
             <p class="launch-rate"><span class="launch-amount">&pound;100</span><span class="launch-unit">per page</span></p>
             <p class="web-price-fee"><i class="fa-solid fa-plus" aria-hidden="true"></i> <span>A separate <strong>&pound;20 administration fee</strong> applies alongside the per-page price.</span></p>
@@ -271,12 +280,14 @@
       <div class="footer-grid">
         <div class="footer-col footer-about">
           <a href="index.html" class="brand brand-light" aria-label="Write on the Dot - Home">
-            <span class="brand-mark" aria-hidden="true"><svg class="logo-svg" viewBox="0 0 48 48" focusable="false"><path class="logo-stem" d="M9.5 22 17.5 20V38h-7V23.8z"/><path class="logo-stem" d="M25 9.5h7v21q0 2.5 2.5 2.5H40v5.5h-7.5Q25 38.5 25 31z"/><circle class="logo-dot" cx="13.8" cy="12.4" r="4.3"/><rect class="logo-bar" x="22.5" y="16.6" width="19.5" height="4.6" rx="2.3"/></svg></span>
-            <span class="brand-name">Write on the Dot<span class="brand-dot">.</span></span>
+            <span class="brand-text">
+              <span class="brand-name">Write on the Dot<span class="brand-dot">.</span></span>
+              <span class="brand-tagline">We&rsquo;ll dot the i&rsquo;s and cross your t&rsquo;s.</span>
+            </span>
+            <img class="brand-logo" src="images/logo-it-icon.png" alt="" width="46" height="46">
           </a>
           <p class="footer-tagline">Virtual Assistance, Business Support &amp; Website Design.</p>
           <p>Helping UK businesses save time and stay organised.</p>
-          <p class="footer-slogan">&ldquo;We'll dot the i's and cross the t's.&rdquo;</p>
         </div>
 
         <div class="footer-col">
@@ -311,7 +322,7 @@
 
       <div class="footer-bottom">
         <p>&copy; 2026 Write on the Dot. All rights reserved.</p>
-        <p class="footer-bottom-slogan">&ldquo;We'll dot the i's and cross the t's.&rdquo;</p>
+        <p class="footer-bottom-slogan">&ldquo;We'll dot the i's and cross your t's.&rdquo;</p>
       </div>
     </div>
   </footer>
