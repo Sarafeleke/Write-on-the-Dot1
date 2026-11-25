@@ -1923,6 +1923,67 @@ ul { margin: 0; padding: 0; list-style: none; }
 .js .benefit-card.reveal.is-visible:hover { transform: translateY(-5px); }
 
 /* -------------------------------------------------------------------------
+   14b. Card stroke motion — a light beam travels the full card border on hover
+   ------------------------------------------------------------------------- */
+@property --stroke-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.audience-card { position: relative; }
+
+.path-card::before,
+.service-card::after,
+.benefit-card::before,
+.price-card::before,
+.audience-card::before,
+.mv-card::before,
+.web-price-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  padding: 2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--stroke-angle),
+    transparent 0% 68%,
+    var(--teal) 80%,
+    var(--gold) 90%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease);
+}
+
+.path-card:hover::before,
+.service-card:hover::after,
+.benefit-card:hover::before,
+.price-card:hover::before,
+.audience-card:hover::before,
+.mv-card:hover::before,
+.web-price-card:hover::after {
+  opacity: 1;
+  animation: card-stroke-spin 2.6s linear infinite;
+}
+
+@keyframes card-stroke-spin {
+  to { --stroke-angle: 360deg; }
+}
+
+/* Gentle lift on cards that didn't already have it */
+.audience-card,
+.mv-card { transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease); }
+.audience-card:hover,
+.mv-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+
+/* -------------------------------------------------------------------------
    15. Responsive
    ------------------------------------------------------------------------- */
 @media (max-width: 1100px) {
