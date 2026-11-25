@@ -357,6 +357,19 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* -------------------------------------------------------------------------
+   6b. Top brand banner (homepage)
+   ------------------------------------------------------------------------- */
+.top-banner {
+  border-bottom: 3px solid var(--gold);
+  line-height: 0;
+}
+.top-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* -------------------------------------------------------------------------
    7. Hero
    ------------------------------------------------------------------------- */
 .hero {
@@ -1048,6 +1061,28 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .final-cta-inner .section-intro { margin-bottom: 2rem; }
 
+/* Final CTA with a strong background photo and a navy overlay for legibility */
+.final-cta-inner.final-cta-photo {
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  background: var(--navy-dark);
+  box-shadow: var(--shadow-lg);
+}
+.final-cta-photo .panel-photo { mix-blend-mode: normal; filter: none; }
+.final-cta-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(13, 27, 42, 0.55) 0%, rgba(13, 27, 42, 0.72) 100%);
+  pointer-events: none;
+}
+.final-cta-photo > *:not(.panel-photo) { position: relative; z-index: 2; }
+.final-cta-photo .section-title { color: var(--white); }
+.final-cta-photo .section-intro { color: rgba(255, 255, 255, 0.88); }
+.final-cta-photo .final-cta-mark { background: var(--gold); color: var(--navy-dark); }
+
 .final-cta-mark {
   display: inline-grid;
   place-items: center;
@@ -1634,6 +1669,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .wd-benefits h3 { font-size: 1.35rem; margin-bottom: 1.25rem; }
 .wd-benefit-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2rem; }
+.feature-copy .wd-benefit-list { grid-template-columns: 1fr; gap: 1rem; margin-top: 1.25rem; }
 .wd-benefit-list li { display: flex; gap: 0.7rem; align-items: flex-start; }
 .wd-benefit-list strong { color: var(--navy); }
 .wd-benefit-list i { color: var(--teal); margin-top: 0.3rem; }
