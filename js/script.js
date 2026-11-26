@@ -142,4 +142,62 @@
   document.querySelectorAll("[data-placeholder-link]").forEach(function (link) {
     link.addEventListener("click", function (e) { e.preventDefault(); });
   });
+
+  /* -----------------------------------------------------------------------
+     7. Contact form — AJAX submission via FormSubmit, with validation,
+     honeypot spam protection and a confirmation message.
+     ----------------------------------------------------------------------- */
+  var contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    var formStatus = document.getElementById("formStatus");
+    var formSuccess = document.getElementById("formSuccess");
+    var submitBtn = document.getElementById("cfSubmit");
+
+    // Clear the invalid flag as soon as the visitor fixes a field
+    contactForm.addEventListener("input", function (e) {
+      if (e.target.classList) e.target.classList.remove("invalid");
+    });
+
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Validation: flag empty required / malformed fields
+      var valid = contactForm.checkValidity();
+      Array.prototype.forEach.call(contactForm.elements, function (field) {
+        if (field.willValidate && !field.checkValidity()) field.classList.add("invalid");
+      });
+      if (!valid) {
+        formStatus.hidden = false;
+        formStatus.className = "form-status error";
+        formStatus.textContent = "Please complete the highlighted fields and try again.";
+        var firstInvalid = contactForm.querySelector(".invalid");
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = "Sending&hellip;";
+      formStatus.hidden = true;
+
+      var data = new FormData(contactForm);
+      fetch("https://formsubmit.co/ajax/alex@writeonthedot.com", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: data
+      }).then(function (res) {
+        if (!res.ok) throw new Error("Request failed");
+        return res.json();
+      }).then(function () {
+        contactForm.hidden = true;
+        formSuccess.hidden = false;
+        formSuccess.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "center" });
+      }).catch(function () {
+        formStatus.hidden = false;
+        formStatus.className = "form-status error";
+        formStatus.textContent = "Sorry, your message could not be sent. Please email us directly at alex@writeonthedot.com.";
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = "Send Message <i class=\"fa-solid fa-paper-plane\" aria-hidden=\"true\"></i>";
+      });
+    });
+  }
 })();
