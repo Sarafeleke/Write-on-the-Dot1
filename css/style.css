@@ -1238,7 +1238,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   opacity: 0.85;
 }
 
-.about-story .feature-split { margin-top: 0; }
+.about-story .feature-split { margin-top: 0; align-items: stretch; }
+.about-story .feature-media img { height: 100%; object-fit: cover; }
 .story-sign {
   margin-top: 1.5rem;
   padding-left: 1rem;
