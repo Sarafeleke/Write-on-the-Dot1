@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer">
 
   <!-- Shared stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=10">
+  <link rel="stylesheet" href="css/style.css?v=32">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -80,11 +80,9 @@
 
     <!-- ================= SECTION 1: HERO ================= -->
     <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-photo" aria-hidden="true"></div>
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-content">
-
           <h1 id="hero-heading" class="hero-title animate-in" style="--delay: 0.25s">
             Business Support, <span class="text-accent">Web &amp; Digital Services</span>
           </h1>
@@ -109,62 +107,69 @@
             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
-
-        <!-- Hero visual: organised workspace composition -->
-        <div class="hero-visual animate-in" style="--delay: 0.4s" role="img" aria-label="Illustration of an organised digital workspace showing an inbox, a weekly calendar and a completed task list, representing professional administrative support.">
+        <!-- Hero visual: interactive Virtual Assistance / Website Design switcher -->
+        <div class="hero-visual hero-switch animate-in" style="--delay: 0.4s" data-hero-switch>
           <div class="visual-shape visual-shape-ring" aria-hidden="true"></div>
           <div class="visual-shape visual-shape-dot" aria-hidden="true"></div>
 
-          <div class="workspace" aria-hidden="true">
-            <div class="workspace-bar">
-              <span class="win-dot"></span><span class="win-dot"></span><span class="win-dot"></span>
-              <span class="workspace-title">Today's Overview</span>
+          <div class="hs-card">
+            <div class="hs-tabs" role="tablist" aria-label="Our two services">
+              <button type="button" role="tab" id="hs-tab-va" class="hs-tab is-active" aria-selected="true" aria-controls="hs-panel-va"><i class="fa-solid fa-headset" aria-hidden="true"></i> Virtual Assistance</button>
+              <button type="button" role="tab" id="hs-tab-web" class="hs-tab" aria-selected="false" aria-controls="hs-panel-web" tabindex="-1"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Website Design</button>
             </div>
-            <div class="workspace-body">
-              <div class="ws-panel ws-inbox">
-                <div class="ws-panel-head"><i class="fa-regular fa-envelope"></i> Inbox</div>
-                <ul class="ws-list">
-                  <li><span class="ws-avatar">A</span><span class="ws-lines"><span></span><span></span></span><i class="fa-solid fa-check ws-tick"></i></li>
-                  <li><span class="ws-avatar alt">M</span><span class="ws-lines"><span></span><span></span></span><i class="fa-solid fa-check ws-tick"></i></li>
-                  <li><span class="ws-avatar">J</span><span class="ws-lines"><span></span><span></span></span><i class="fa-solid fa-reply ws-tick muted"></i></li>
-                </ul>
-              </div>
-              <div class="ws-panel ws-calendar">
-                <div class="ws-panel-head"><i class="fa-regular fa-calendar"></i> This Week</div>
-                <div class="ws-days">
-                  <span>M</span><span>T</span><span class="active">W</span><span>T</span><span>F</span>
-                </div>
-                <div class="ws-events">
-                  <span class="ws-event teal"></span>
-                  <span class="ws-event gold"></span>
-                  <span class="ws-event navy"></span>
-                </div>
-              </div>
-              <div class="ws-panel ws-tasks">
-                <div class="ws-panel-head"><i class="fa-regular fa-square-check"></i> Tasks</div>
-                <ul class="ws-task-list">
-                  <li class="done"><i class="fa-solid fa-circle-check"></i><span></span></li>
-                  <li class="done"><i class="fa-solid fa-circle-check"></i><span></span></li>
-                  <li class="done"><i class="fa-solid fa-circle-check"></i><span></span></li>
-                  <li><i class="fa-regular fa-circle"></i><span></span></li>
-                </ul>
-                <div class="ws-progress"><span></span></div>
-              </div>
-            </div>
-          </div>
+            <div class="hs-progress" aria-hidden="true"><span></span></div>
 
-          <!-- Floating cards -->
-          <div class="float-card float-email" aria-hidden="true">
-            <span class="float-icon teal"><i class="fa-solid fa-envelope-open-text"></i></span>
-            <span class="float-text"><strong>Enquiry answered</strong><small>Inbox up to date</small></span>
-          </div>
-          <div class="float-card float-calendar" aria-hidden="true">
-            <span class="float-icon gold"><i class="fa-regular fa-calendar-check"></i></span>
-            <span class="float-text"><strong>Meeting scheduled</strong><small>Diary updated</small></span>
-          </div>
-          <div class="float-card float-task" aria-hidden="true">
-            <span class="float-icon navy"><i class="fa-solid fa-check"></i></span>
-            <span class="float-text"><strong>Records organised</strong><small>Task complete</small></span>
+            <div class="hs-stage">
+              <!-- Virtual assistance scene -->
+              <div class="hs-panel is-active" id="hs-panel-va" role="tabpanel" aria-labelledby="hs-tab-va">
+                <p class="hs-title"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i> Today&rsquo;s admin, handled</p>
+                <ul class="hs-tasks">
+                  <li style="--i:0"><button type="button" class="hs-task done" aria-pressed="true"><span class="hs-check"><i class="fa-solid fa-check" aria-hidden="true"></i></span><span class="hs-task-text"><strong>Client enquiries answered</strong><small>Inbox up to date</small></span><i class="fa-regular fa-envelope hs-task-icon" aria-hidden="true"></i></button></li>
+                  <li style="--i:1"><button type="button" class="hs-task done" aria-pressed="true"><span class="hs-check"><i class="fa-solid fa-check" aria-hidden="true"></i></span><span class="hs-task-text"><strong>Meetings scheduled</strong><small>Diary organised</small></span><i class="fa-regular fa-calendar hs-task-icon" aria-hidden="true"></i></button></li>
+                  <li style="--i:2"><button type="button" class="hs-task done" aria-pressed="true"><span class="hs-check"><i class="fa-solid fa-check" aria-hidden="true"></i></span><span class="hs-task-text"><strong>Records &amp; documents filed</strong><small>Everything in order</small></span><i class="fa-regular fa-folder-open hs-task-icon" aria-hidden="true"></i></button></li>
+                  <li style="--i:3"><button type="button" class="hs-task" aria-pressed="false"><span class="hs-check"><i class="fa-solid fa-check" aria-hidden="true"></i></span><span class="hs-task-text"><strong>Social posts scheduled</strong><small>Tap to tick it off</small></span><i class="fa-solid fa-share-nodes hs-task-icon" aria-hidden="true"></i></button></li>
+                </ul>
+                <div class="hs-meter">
+                  <span class="hs-meter-label"><b data-hs-count>3</b> of 4 tasks done</span>
+                  <span class="hs-meter-bar"><span data-hs-bar style="width:75%"></span></span>
+                </div>
+              </div>
+
+              <!-- Website design scene -->
+              <div class="hs-panel" id="hs-panel-web" role="tabpanel" aria-labelledby="hs-tab-web">
+                <div class="hs-web-head">
+                  <p class="hs-title"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> Your page, built to work</p>
+                  <div class="hs-device" role="group" aria-label="Preview size">
+                    <button type="button" class="hs-dev is-active" data-device="desktop" aria-pressed="true" aria-label="Desktop preview"><i class="fa-solid fa-desktop" aria-hidden="true"></i></button>
+                    <button type="button" class="hs-dev" data-device="mobile" aria-pressed="false" aria-label="Mobile preview"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></button>
+                  </div>
+                </div>
+                <div class="hs-browser" data-hs-browser>
+                  <div class="browser-bar"><span></span><span></span><span></span><em>yourbusiness.co.uk</em></div>
+                  <div class="hs-site">
+                    <div class="hs-site-nav" style="--i:0">
+                      <span class="hs-site-logo"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Your Business</span>
+                      <span class="hs-site-links"><b>Home</b><b>About</b><b>Contact</b></span>
+                    </div>
+                    <div class="hs-site-hero" style="--i:1">
+                      <div class="hs-site-copy">
+                        <p class="hs-site-eyebrow">Welcome</p>
+                        <p class="hs-site-heading">Quality service, delivered with care</p>
+                        <p class="hs-site-sub">Friendly, reliable support for customers like you.</p>
+                        <span class="hs-site-btn">Get in touch <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                      </div>
+                      <div class="hs-site-img" aria-hidden="true"><span class="sun"></span><span class="hill h1"></span><span class="hill h2"></span></div>
+                    </div>
+                    <div class="hs-site-cards" style="--i:2">
+                      <span><i class="fa-solid fa-briefcase" aria-hidden="true"></i><b>Services</b></span>
+                      <span><i class="fa-solid fa-users" aria-hidden="true"></i><b>About us</b></span>
+                      <span><i class="fa-solid fa-star" aria-hidden="true"></i><b>Reviews</b></span>
+                    </div>
+                  </div>
+                  <span class="hs-price" style="--i:3"><i class="fa-solid fa-tag" aria-hidden="true"></i> &pound;100 per page</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -184,7 +189,7 @@
             <figure class="path-media">
               <img src="images/banner-illustration.jpg" alt="Write on the Dot illustration of professionals collaborating with laptops and digital tools." width="1600" height="396" loading="lazy">
             </figure>
-            <span class="path-icon" aria-hidden="true"><i class="fa-solid fa-headset"></i></span>
+            <span class="path-icon" aria-hidden="true"><img src="images/icon-virtual-assistance.jpg" alt="" width="176" height="176" loading="lazy"></span>
             <h3>Virtual Assistance &amp; Business Support</h3>
             <p>Take the pressure off your day-to-day operations. From managing emails and customer enquiries to research and data entry, we keep your business running smoothly.</p>
             <ul class="path-points">
@@ -199,7 +204,7 @@
             <figure class="path-media">
               <img src="images/web-development-services.jpg" alt="Write on the Dot web design illustration: building websites that work for you, showing professionals with a globe, smartphone and website wireframes." width="1024" height="765" loading="lazy">
             </figure>
-            <span class="path-icon" aria-hidden="true"><i class="fa-solid fa-laptop-code"></i></span>
+            <span class="path-icon" aria-hidden="true"><img src="images/icon-website-design.jpg" alt="" width="176" height="176" loading="lazy"></span>
             <h3>Website Design &amp; Development</h3>
             <p>Establish and strengthen your online presence. Whether you&rsquo;re starting from scratch or improving an existing site, we deliver an attractive, functional website built around your needs.</p>
             <ul class="path-points">
@@ -215,6 +220,7 @@
 
     <!-- ================= LAUNCH OFFER BANNER ================= -->
     <section class="launch-banner" aria-labelledby="launch-heading">
+      <span class="panel-photo" style="background-image: url('images/brand-card.jpg'); --photo-opacity: 0.09;" aria-hidden="true"></span>
       <div class="container launch-inner reveal">
         <div class="launch-price">
           <span class="launch-tag"><i class="fa-solid fa-star" aria-hidden="true"></i> Special Launch Offer</span>
@@ -228,6 +234,23 @@
       </div>
     </section>
 
+    <!-- ================= NO EMPLOYMENT BURDENS ================= -->
+    <section class="section no-burdens" aria-labelledby="burdens-heading">
+      <div class="container">
+        <div class="feature-split reveal">
+          <figure class="feature-media">
+            <img src="images/heavy-lifting.jpg" alt="Write on the Dot graphic: a business owner lifting weights labelled recruitment, payroll and HR administration, beside a relaxed owner once Write on the Dot removes the weight." width="512" height="512" loading="lazy">
+          </figure>
+          <div class="feature-copy">
+            <span class="eyebrow">No Employment Burdens</span>
+            <h3 id="burdens-heading">We&rsquo;ll Do the Heavy Lifting for You</h3>
+            <p>Get dedicated support without the costs and responsibilities of direct employment, from recruitment, payroll and pensions to holiday cover, office space and equipment.</p>
+            <p>By combining a global delivery team with UK-based management and oversight, we provide dedicated, flexible and cost-effective administrative support tailored to your business.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= SECTION 2: SERVICES OVERVIEW ================= -->
     <section class="section services" id="services" aria-labelledby="services-heading">
       <div class="container">
@@ -235,6 +258,7 @@
           <span class="eyebrow">Virtual Assistance Services</span>
           <h2 id="services-heading" class="section-title">How We Can Support Your Business</h2>
           <p class="section-intro">Flexible admin and business support, tailored to your needs.</p>
+          <p class="swipe-hint"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Swipe to explore</p>
         </header>
 
         <div class="services-grid">
@@ -310,6 +334,7 @@
           <span class="eyebrow">Key Benefits</span>
           <h2 id="benefits-heading" class="section-title">Why Choose Write on the Dot?</h2>
           <p class="section-intro">Dependable, flexible support that makes your working day easier.</p>
+          <p class="swipe-hint"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Swipe to explore</p>
         </header>
 
         <div class="benefits-grid">
@@ -354,18 +379,6 @@
             <h3 class="card-title">Support That Grows With Your Business</h3>
             <p>From a few hours to regular ongoing help, we adapt as you grow.</p>
           </article>
-        </div>
-
-        <div class="feature-split reveal">
-          <figure class="feature-media">
-            <img src="images/heavy-lifting.jpg" alt="Write on the Dot graphic: a business owner lifting weights labelled recruitment, payroll and HR administration, beside a relaxed owner once Write on the Dot removes the weight." width="512" height="512" loading="lazy">
-          </figure>
-          <div class="feature-copy">
-            <span class="eyebrow">No Employment Burdens</span>
-            <h3>We&rsquo;ll Do the Heavy Lifting for You</h3>
-            <p>Get dedicated support without the costs and responsibilities of direct employment, from recruitment, payroll and pensions to holiday cover, office space and equipment.</p>
-            <p>By combining a global delivery team with UK-based management and oversight, we provide dedicated, flexible and cost-effective administrative support tailored to your business.</p>
-          </div>
         </div>
 
         <p class="benefits-closing reveal">

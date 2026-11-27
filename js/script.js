@@ -200,4 +200,94 @@
       });
     });
   }
+
+  /* -----------------------------------------------------------------------
+     8. Hero switcher: Virtual Assistance / Website Design (interactive)
+     ----------------------------------------------------------------------- */
+  var heroSwitch = document.querySelector("[data-hero-switch]");
+  if (heroSwitch) {
+    var hsTabs = Array.prototype.slice.call(heroSwitch.querySelectorAll(".hs-tab"));
+    var hsPanels = Array.prototype.slice.call(heroSwitch.querySelectorAll(".hs-panel"));
+    var hsTimer = null;
+    var hsStopped = prefersReducedMotion;
+    var hsCurrent = 0;
+
+    var hsRestartBar = function () {
+      heroSwitch.classList.remove("is-auto");
+      void heroSwitch.offsetWidth;
+      if (!hsStopped) heroSwitch.classList.add("is-auto");
+    };
+    var hsShow = function (index, focus) {
+      hsCurrent = index;
+      hsTabs.forEach(function (tab, n) {
+        var on = n === index;
+        tab.classList.toggle("is-active", on);
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+        tab.tabIndex = on ? 0 : -1;
+        hsPanels[n].classList.toggle("is-active", on);
+      });
+      if (focus) hsTabs[index].focus();
+      hsRestartBar();
+    };
+    var hsSchedule = function () {
+      clearInterval(hsTimer);
+      if (hsStopped) return;
+      hsTimer = setInterval(function () { hsShow((hsCurrent + 1) % hsTabs.length, false); }, 7000);
+    };
+    var hsStop = function () {
+      hsStopped = true;
+      clearInterval(hsTimer);
+      heroSwitch.classList.remove("is-auto");
+    };
+
+    hsTabs.forEach(function (tab, n) {
+      tab.addEventListener("click", function () { hsStop(); hsShow(n, false); });
+      tab.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+          e.preventDefault();
+          hsStop();
+          hsShow((n + (e.key === "ArrowRight" ? 1 : hsTabs.length - 1)) % hsTabs.length, true);
+        }
+      });
+    });
+    heroSwitch.addEventListener("mouseenter", function () { clearInterval(hsTimer); heroSwitch.classList.remove("is-auto"); });
+    heroSwitch.addEventListener("mouseleave", function () { if (!hsStopped) { hsRestartBar(); hsSchedule(); } });
+    heroSwitch.addEventListener("focusin", function () { clearInterval(hsTimer); });
+
+    // Virtual assistance: tick tasks on and off
+    var hsCount = heroSwitch.querySelector("[data-hs-count]");
+    var hsBar = heroSwitch.querySelector("[data-hs-bar]");
+    var hsTaskBtns = heroSwitch.querySelectorAll(".hs-task");
+    var hsUpdateMeter = function () {
+      var done = heroSwitch.querySelectorAll(".hs-task.done").length;
+      hsCount.textContent = done;
+      hsBar.style.width = (done / hsTaskBtns.length * 100) + "%";
+    };
+    hsTaskBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        hsStop();
+        var on = btn.classList.toggle("done");
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+        hsUpdateMeter();
+      });
+    });
+
+    // Website design: desktop / mobile preview
+    var hsBrowser = heroSwitch.querySelector("[data-hs-browser]");
+    heroSwitch.querySelectorAll(".hs-dev").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        hsStop();
+        var mobile = btn.getAttribute("data-device") === "mobile";
+        hsBrowser.classList.toggle("is-mobile", mobile);
+        heroSwitch.querySelectorAll(".hs-dev").forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+      });
+    });
+
+    hsRestartBar();
+    hsSchedule();
+  }
 })();
